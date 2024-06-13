@@ -7,6 +7,7 @@
 - react-dom@18.3.1
 - webpack@5.91.0
 - typescript@5.4.5
+- axios@1.7.2
 - @tanstack/react-query@5.40.1
 - @tanstack/react-query-devtools@5.40.1
 
