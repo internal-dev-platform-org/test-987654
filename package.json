@@ -11,6 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@tanstack/react-query": "5.40.1",
+    "axios": "1.7.2",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },
@@ -19,6 +21,7 @@
     "@babel/preset-env": "7.24.6",
     "@babel/preset-react": "7.24.6",
     "@babel/preset-typescript": "7.24.6",
+    "@tanstack/react-query-devtools": "^5.40.1",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
     "babel-loader": "9.1.3",

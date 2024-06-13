@@ -5,9 +5,15 @@
     align-items: center;
 }
 
-.form {
+.refresh {
+    position: absolute;
+    right: 10px;
+}
+
+.post {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }

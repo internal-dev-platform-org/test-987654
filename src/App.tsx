@@ -1,43 +1,22 @@
-import { FC } from "react";
-import { createEffect, createStore, sample } from "effector";
-import { createGate, useGate, useUnit } from "effector-react";
+import { FC } from 'react';
 
 import styles from './App.module.css';
-
-const loadFormData = createGate();
-const loadFormDataFx = createEffect()
-const $formDataLoaded = createStore(false);
-
-$formDataLoaded.on(loadFormDataFx.doneData, () => true)
-
-loadFormDataFx.use(async () => {
-  const promise = new Promise<void>((resolve) => {
-    setTimeout(() => {
-      resolve();
-    }, 2500)
-  });
-  await promise;
-});
-
-sample({
-  source: loadFormData.open,
-  target: loadFormDataFx
-});
-
-const Loading = () => (
-  <div className={styles.loading}>Загружается...</div>
-);
-
-const Form = () =>  (
-  <form className={styles.form}>
-    <input type='text' placeholder='Введите значение' />
-    <input type="submit" onClick={(e) => e.preventDefault()} />
-  </form>
-  );
+import { useGetPosts } from './hooks/use-get-posts';
 
 export const App: FC = () => {
-  useGate(loadFormData);
-  const formDataLoaded = useUnit($formDataLoaded);
-  
-  return formDataLoaded ? <Form /> : <Loading />;
+  const { isPending, error, data: post, isFetching, refetch } = useGetPosts();
+
+  if (isPending) return <div className={styles.loading}>Загружается...</div>;
+  if (isFetching) return <div className={styles.loading}>Обновляется...</div>;
+  if (error) return <div className={styles.loading}>Возникла ошибка: {error.message}</div>;
+
+  return (
+    <>
+      <button className={styles.refresh} onClick={() => refetch()}>Обновить</button>
+      <div className={styles.post}>
+        <h1>{post.title}</h1>
+        <p>{post.body}</p>
+      </div>
+    </>
+  )
 }
