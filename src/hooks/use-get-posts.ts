@@ -1,9 +1,9 @@
-import { useQuery } from "@tanstack/react-query";
+import {useQuery} from '@tanstack/react-query';
 
-import { getPosts } from "../api/get-posts";
+import {getPosts} from '../api/get-posts';
 
 export const useGetPosts = () =>
     useQuery({
-        queryKey: ['posts'], 
-        queryFn: getPosts
-});
+        queryKey: ['posts'],
+        queryFn: getPosts,
+    });

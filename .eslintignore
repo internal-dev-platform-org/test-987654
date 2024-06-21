@@ -1,0 +1,7 @@
+/node_modules
+/dist
+/webpack
+jest.config.js
+.eslintrc.js
+.prettierrc.js
+.lintstagedrc.js

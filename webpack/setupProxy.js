@@ -4,7 +4,7 @@ module.exports = function (app) {
     app.use(
         '/api/v1/someapi',
         createProxyMiddleware({
-            target: 'https://api-server-for-proxy.com',
+            target: 'https://jsonplaceholder.typicode.com',
             secure: false,
             changeOrigin: true,
         }),

@@ -1,0 +1,8 @@
+{
+  "libraries": {
+    "eslint": {"value": "false", "name": "eslint", "description":  "ESLint"},
+    "jest": {"value": "false", "name": "jest", "description":  "Jest"},
+    "prettier": {"value": "false", "name": "prettier", "description":  "Prettier"},
+    "husky": {"value": "false", "name": "husky", "description":  "Husky"}
+  }
+}

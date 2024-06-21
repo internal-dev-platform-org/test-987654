@@ -1,3 +1,3 @@
-import axios from "axios";
+import axios from 'axios';
 
-export const getPosts = () => axios.get('https://jsonplaceholder.typicode.com/posts/1').then((res) => res.data);
+export const getPosts = () => axios.get('/api/v1/someapi/posts/1').then(res => res.data);

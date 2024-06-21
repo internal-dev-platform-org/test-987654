@@ -5,8 +5,19 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack serve -c ./webpack/webpack.config.js",
-    "build": "webpack -c ./webpack/webpack.config.js --env production",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    <#if eslint == "true">
+      "eslint": "eslint -c .eslintrc.js src --fix",
+    </#if>
+    <#if prettier == "true">
+      "prettier": "prettier --write 'src'",
+    </#if>
+    <#if jest == "true">
+      "test": "jest --detectOpenHandles --config jest.config.js --passWithNoTests",
+    </#if>
+    <#if husky == "true">
+      "prepare": "husky",
+    </#if>
+    "build": "webpack -c ./webpack/webpack.config.js --env production"
   },
   "author": "",
   "license": "ISC",
@@ -17,11 +28,36 @@
     "react-dom": "18.3.1"
   },
   "devDependencies": {
+    <#if prettier == "true">
+      "prettier": "3.3.2",
+    </#if>
+    <#if eslint == "true">
+      "eslint": "8.57.0",
+      "@typescript-eslint/eslint-plugin": "7.13.0",
+      "@typescript-eslint/parser": "7.13.0",
+      "eslint-plugin-import": "2.29.1",
+      "eslint-plugin-react": "7.34.2",
+      "eslint-plugin-react-hooks": "4.6.2",
+      "eslint-plugin-unused-imports": "3.2.0",
+    </#if>
+    <#if eslint == "true" && prettier == "true">
+      "eslint-plugin-prettier": "5.1.3",
+      "eslint-config-prettier": "9.1.0",
+    </#if>
+    <#if jest == "true">
+      "jest": "29.7.0",
+      "ts-jest": "29.1.4",
+      "@types/jest": "29.5.12",
+    </#if>
+    <#if husky == "true">
+      "husky": "9.0.11",
+      "lint-staged": "15.2.7",
+    </#if>
     "@babel/core": "7.24.6",
     "@babel/preset-env": "7.24.6",
     "@babel/preset-react": "7.24.6",
     "@babel/preset-typescript": "7.24.6",
-    "@tanstack/react-query-devtools": "^5.40.1",
+    "@tanstack/react-query-devtools": "5.40.1",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
     "babel-loader": "9.1.3",
@@ -37,6 +73,6 @@
     "webpack-dev-server": "5.0.4"
   },
   "engines": {
-    "node": "18.14.0"
+    "node": "18.18.0"
   }
 }
