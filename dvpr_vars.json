@@ -1,4 +1,8 @@
 {
+  "placeholders": {
+    "system_code": {"value": "[=system_code]", "description" : "Имя проектной области. Получаем с шага 1 из поля входит в (?)", "enable" : "true"},
+    "project_name": {"value": "[=project_name]", "description" : "Название проекта", "enable" : "true"}
+  },
   "libraries": {
     "eslint": {"value": "false", "name": "eslint", "description":  "ESLint"},
     "jest": {"value": "false", "name": "jest", "description":  "Jest"},
