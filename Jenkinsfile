@@ -1,5 +1,5 @@
 #!groovy
-podTemplate(cloud: 'dev', inheritFrom: 'dev', namespace: 'jenkins', yaml: '''
+podTemplate(namespace: 'jenkins', yaml: '''
     spec:
         imagePullSecrets:
           - name: docker-regcred
