@@ -10,6 +10,7 @@
 - axios@1.7.2
 - @tanstack/react-query@5.40.1
 - @tanstack/react-query-devtools@5.40.1
+- @admiral-ds/react-ui@8.16.0
 
 Дополнительно можно подключить библиотеки:
 - prettier@3.3.2
