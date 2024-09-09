@@ -1,8 +1,22 @@
 {
+  "placeholders": {
+    "app_name": {"value": "[=app_name]", "description" : "Название приложения", "enable": "false"},
+    "project_key": {"value": "[=project_key]", "description" : "Код проектной области", "enable": "false"},
+    "SFERA_HOST": {"value": "ppch-infra.sfera.org", "description" : "Имя хоста СФЕРА"},
+    "DOCKER_URL": {"value": "docker-infra.sfera.org/docker-snapshot", "description" : "Адрес хранилища для публикации образа"},
+    "HOSTNAME": {"value": "10.10.12.66", "description" : "Имя хоста с docker для развертывания"},
+    "SSH_KEY_ID": {"value": "CLOUD_VM_KEY", "description" : "ID ключа для развертывания. Указывается в разделе учетных данных в CI/CD"}
+  },
   "libraries": {
     "eslint": {"value": "false", "name": "eslint", "description":  "ESLint"},
     "jest": {"value": "false", "name": "jest", "description":  "Jest"},
     "prettier": {"value": "false", "name": "prettier", "description":  "Prettier"},
     "husky": {"value": "false", "name": "husky", "description":  "Husky"}
+  },
+  "branches" : ["master", "CD"],
+  "devOpsTool": "ORCHESTRATION",
+  "devopsProjects": {
+    "master": "CI",
+    "CD": "CD"
   }
 }
