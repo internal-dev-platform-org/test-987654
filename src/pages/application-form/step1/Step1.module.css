@@ -1,0 +1,18 @@
+.gender {
+    > label {
+        margin-top: 0 !important;
+    }
+}
+
+.passport {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    > div {
+        width: 100%;
+    }
+}
+
+.continue {
+    display: block;
+}

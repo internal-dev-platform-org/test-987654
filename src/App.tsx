@@ -1,40 +1,22 @@
 import {FC} from 'react';
-import {Button, T} from '@admiral-ds/react-ui';
+import {Spinner, T} from '@admiral-ds/react-ui';
 
 import styles from './App.module.css';
-import {useGetPosts} from './hooks/use-get-posts';
+import {useGetFormData} from './hooks/use-get-form-data';
+import {ApplicationForm} from './pages/application-form/ApplicationForm';
 
 export const App: FC = () => {
-    const {isPending, error, data: post, isFetching, refetch} = useGetPosts();
+    const {isPending} = useGetFormData();
 
     if (isPending)
         return (
-            <div className={styles.loading}>
-                <T font="Main/XS">Загружается...</T>
-            </div>
-        );
-    if (isFetching)
-        return (
-            <div className={styles.loading}>
-                <T font="Main/XS">Обновляется...</T>
-            </div>
-        );
-    if (error)
-        return (
-            <div className={styles.loading}>
-                <T font="Main/XS">Возникла ошибка: {error.message}</T>
+            <div className={styles.loader}>
+                <T font="Body/Body 1 Long" as="div">
+                    Загрузка демо приложения
+                </T>
+                <Spinner dimension="l" />
             </div>
         );
 
-    return (
-        <>
-            <Button dimension="m" className={styles.refresh} onClick={() => refetch()}>
-                Обновить
-            </Button>
-            <div className={styles.post}>
-                <T font="Main/M">{post.title}</T>
-                <T font="Main/XS">{post.body}</T>
-            </div>
-        </>
-    );
+    return <ApplicationForm />;
 };

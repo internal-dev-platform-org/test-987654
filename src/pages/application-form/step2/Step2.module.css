@@ -1,0 +1,11 @@
+.continue {
+    display: block;
+}
+
+.submitted {
+    text-align: center;
+}
+
+.restart {
+    margin-top: 20px;
+}

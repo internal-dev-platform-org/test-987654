@@ -1,25 +1,13 @@
-html, body {
+html,
+body {
     margin: 0;
 }
 
-.loading {
-    height: 90vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.refresh {
-    position: absolute!important;
-    top: 10px;
-    right: 10px;
-}
-
-.post {
+.loader {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    text-align: center;
+    gap: 30px;
 }
